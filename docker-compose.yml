@@ -17,7 +17,12 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - DATABASE_URL=postgres://user:password@postgres:5432/mydatabase
+      DATABASE_URL: ${DATABASE_URL} # postgres://user:password@postgres:5432/mydatabase
+      DB_HOST: ${DB_HOST} # postgres
+      DB_PORT: ${DB_PORT} # 5432
+      DB_USER: ${DB_USER} # user
+      DB_PASSWORD: ${DB_PASSWORD} # password
+      DB_NAME: ${DB_NAME} # mydatabase
     depends_on:
       - postgres
     networks:
@@ -42,3 +47,6 @@ networks:
 
 volumes:
   postgres-data:
+
+
+# docker-compose up --build
